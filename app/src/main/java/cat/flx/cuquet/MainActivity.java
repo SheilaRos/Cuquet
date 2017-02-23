@@ -61,25 +61,23 @@ public class MainActivity extends AppCompatActivity implements CuquetView.Cuquet
     public boolean dispatchKeyEvent(KeyEvent event) {
         switch (event.getKeyCode()) {
             case KeyEvent.KEYCODE_A:
-                cuquetView.update(0, +10*2);
+                cuquetView.update(0, +10);
                 break;
             case KeyEvent.KEYCODE_Q:
-                cuquetView.update(0, -10*2);
+                cuquetView.update(0, -10);
                 break;
             case KeyEvent.KEYCODE_O:
-                cuquetView.update(-10*2, 0);
+                cuquetView.update(-10, 0);
                 break;
             case KeyEvent.KEYCODE_P:
-                cuquetView.update(+10*2, 0);
+                cuquetView.update(+10, 0);
                 break;
         }
         return super.dispatchKeyEvent(event);
     }
     @Override public void scoreUpdated(View view, int score) {tvScore.setText(Integer.toString(score));}
     @Override //Cuando pierde le indico que la imagen de "Game Over" se muestre
-    public void gameLost(View view) {
-        game.setVisibility(View.VISIBLE);
-    }
+    public void gameLost(View view) { game.setVisibility(View.VISIBLE); }
     @Override
     public void onSensorChanged(SensorEvent event) {
         //Actualizas la vista en funación a la rotación del teléfono
